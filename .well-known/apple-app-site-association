@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "MM85XQEN44.com.sundry.settlr",
+        "paths": ["/join", "/join/*", "/invite", "/invite/*"]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["MM85XQEN44.com.sundry.settlr"]
+  }
+}
