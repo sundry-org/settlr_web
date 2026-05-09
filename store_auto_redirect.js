@@ -8,8 +8,8 @@ const FALLBACK_URL = 'https://settlr.tech';
 const ua = navigator.userAgent || navigator.vendor || window.opera;
 
 if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
-  window.location.href = APP_STORE_URL;
+    window.location.href = APP_STORE_URL;
 } else if (/android/i.test(ua)) {
-  window.location.href = PLAY_STORE_URL;
+    window.location.href = PLAY_STORE_URL;
 }
 // Desktop: do nothing – let the page render normally.
