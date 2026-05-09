@@ -1,236 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Settlr – Split expenses. Settle up.</title>
-  <meta name="description" content="Settlr makes splitting bills and settling up with friends simple. Track group expenses, balances, and settle with one tap." />
-  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settlr – Split expenses. Settle up.</title>
+    <meta name="description"
+        content="Settlr makes splitting bills and settling up with friends simple. Track group expenses, balances, and settle with one tap." />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0f0f13;
-      color: #f5f5f7;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f0f13;
+            color: #f5f5f7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 40px;
-    }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+        }
 
-    .logo {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: #f5f5f7;
-      letter-spacing: -0.5px;
-    }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #f5f5f7;
+            letter-spacing: -0.5px;
+        }
 
-    nav a {
-      color: #a1a1aa;
-      text-decoration: none;
-      font-size: 0.9rem;
-      margin-left: 24px;
-      transition: color 0.2s;
-    }
-    nav a:hover { color: #f5f5f7; }
+        nav a {
+            color: #a1a1aa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-left: 24px;
+            transition: color 0.2s;
+        }
 
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 60px 24px 80px;
-    }
+        nav a:hover {
+            color: #f5f5f7;
+        }
 
-    .badge {
-      display: inline-block;
-      background: rgba(99, 102, 241, 0.15);
-      color: #a5b4fc;
-      border: 1px solid rgba(99, 102, 241, 0.3);
-      border-radius: 999px;
-      padding: 6px 16px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-    }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 24px 80px;
+        }
 
-    h1 {
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -1.5px;
-      margin-bottom: 20px;
-      max-width: 700px;
-    }
+        .badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 999px;
+            padding: 6px 16px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
 
-    h1 span {
-      background: linear-gradient(135deg, #818cf8, #6366f1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+        h1 {
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+            max-width: 700px;
+        }
 
-    .subtitle {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: #a1a1aa;
-      max-width: 520px;
-      line-height: 1.6;
-      margin-bottom: 44px;
-    }
+        h1 span {
+            background: linear-gradient(135deg, #818cf8, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
 
-    .store-badges {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 64px;
-    }
+        .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: #a1a1aa;
+            max-width: 520px;
+            line-height: 1.6;
+            margin-bottom: 44px;
+        }
 
-    .store-badges a img {
-      height: 52px;
-      object-fit: contain;
-    }
+        .store-badges {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 64px;
+        }
 
-    .store-badges a.coming-soon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 12px;
-      padding: 10px 22px;
-      color: #71717a;
-      font-size: 0.85rem;
-      text-decoration: none;
-      cursor: default;
-    }
+        .store-badges a img {
+            height: 52px;
+            object-fit: contain;
+        }
 
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      max-width: 760px;
-      width: 100%;
-    }
+        .store-badges a.coming-soon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            padding: 10px 22px;
+            color: #71717a;
+            font-size: 0.85rem;
+            text-decoration: none;
+            cursor: default;
+        }
 
-    .feature {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 24px 20px;
-      text-align: left;
-    }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            max-width: 760px;
+            width: 100%;
+        }
 
-    .feature-icon {
-      font-size: 1.6rem;
-      margin-bottom: 12px;
-    }
+        .feature {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: left;
+        }
 
-    .feature h3 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
+        .feature-icon {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
 
-    .feature p {
-      font-size: 0.82rem;
-      color: #71717a;
-      line-height: 1.5;
-    }
+        .feature h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
 
-    footer {
-      text-align: center;
-      padding: 28px 24px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      font-size: 0.82rem;
-      color: #52525b;
-    }
+        .feature p {
+            font-size: 0.82rem;
+            color: #71717a;
+            line-height: 1.5;
+        }
 
-    footer a {
-      color: #71717a;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    footer a:hover { color: #a1a1aa; }
+        footer {
+            text-align: center;
+            padding: 28px 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.82rem;
+            color: #52525b;
+        }
 
-    @media (max-width: 480px) {
-      header { padding: 16px 20px; }
-      nav a { margin-left: 14px; }
-    }
-  </style>
+        footer a {
+            color: #71717a;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            color: #a1a1aa;
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 16px 20px;
+            }
+
+            nav a {
+                margin-left: 14px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <div class="logo">Settlr</div>
-    <nav>
-      <a href="/support.html">Support</a>
-      <a href="/privacy-policy.html">Privacy</a>
-      <a href="/download.html">Download</a>
-    </nav>
-  </header>
+    <header>
+        <div class="logo">Settlr</div>
+        <nav>
+            <a href="/support.html">Support</a>
+            <a href="/privacy-policy.html">Privacy</a>
+            <a href="/download.html">Download</a>
+        </nav>
+    </header>
 
-  <main>
-    <div class="badge">Now available</div>
+    <main>
+        <div class="badge">Now available</div>
 
-    <h1>Split expenses.<br /><span>Settle up effortlessly.</span></h1>
+        <h1>Split expenses.<br /><span>Settle up effortlessly.</span></h1>
 
-    <p class="subtitle">
-      Settlr makes it easy to track shared expenses with friends, family, and housemates —
-      and settle debts in one tap.
-    </p>
+        <p class="subtitle">
+            Settlr makes it easy to track shared expenses with friends, family, and housemates —
+            and settle debts in one tap.
+        </p>
 
-    <div class="store-badges">
-      <!-- TODO: Replace href values with real App Store / Play Store URLs when published -->
-      <a href="#" class="coming-soon">App Store – Coming Soon</a>
-      <a href="#" class="coming-soon">Google Play – Coming Soon</a>
-    </div>
+        <div class="store-badges">
+            <!-- TODO: Replace href values with real App Store / Play Store URLs when published -->
+            <a href="#" class="coming-soon">App Store – Coming Soon</a>
+            <a href="#" class="coming-soon">Google Play – Coming Soon</a>
+        </div>
 
-    <div class="features">
-      <div class="feature">
-        <div class="feature-icon">👥</div>
-        <h3>Group expenses</h3>
-        <p>Create groups for trips, households, or any shared cost with friends.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">⚖️</div>
-        <h3>Smart splits</h3>
-        <p>Split equally, by exact amounts, or by custom percentages.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">📊</div>
-        <h3>Instant balances</h3>
-        <p>See who owes what at a glance, with simplified debt resolution.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">✅</div>
-        <h3>Settle up</h3>
-        <p>Record settlements and close out debts with a single tap.</p>
-      </div>
-    </div>
-  </main>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">👥</div>
+                <h3>Group expenses</h3>
+                <p>Create groups for trips, households, or any shared cost with friends.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚖️</div>
+                <h3>Smart splits</h3>
+                <p>Split equally, by exact amounts, or by custom percentages.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <h3>Instant balances</h3>
+                <p>See who owes what at a glance, with simplified debt resolution.</p>
+            </div>
+        </div>
+    </main>
 
-  <footer>
-    <p>
-      <a href="/privacy-policy.html">Privacy Policy</a>
-      <a href="/terms-and-conditions.html">Terms</a>
-      <a href="/support.html">Support</a>
-      <a href="/delete-account-instructions.html">Delete Account</a>
-    </p>
-    <p style="margin-top: 12px;">&copy; 2026 Settlr. All rights reserved.</p>
-  </footer>
+    <footer>
+        <p>
+            <a href="/privacy-policy.html">Privacy Policy</a>
+            <a href="/terms-and-conditions.html">Terms</a>
+            <a href="/support.html">Support</a>
+            <a href="/delete-account-instructions.html">Delete Account</a>
+        </p>
+        <p style="margin-top: 12px;">&copy; 2026 Settlr. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>
