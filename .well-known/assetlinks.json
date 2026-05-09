@@ -1,13 +1,14 @@
 [
-  {
-    "relation": ["delegate_permission/common.handle_all_urls"],
-    "target": {
-      "namespace": "android_app",
-      "package_name": "com.sundry.settlr",
-      "sha256_cert_fingerprints": [
-        "TODO: Replace with your release keystore SHA256 fingerprint",
-        "TODO: Replace with your Play App Signing SHA256 fingerprint (if using Play App Signing)"
-      ]
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.sundry.settlr",
+            "sha256_cert_fingerprints": [
+                "C0:34:E9:7D:33:B3:0D:D0:19:D3:C7:DA:0A:86:23:3D:90:42:7B:24:BC:5E:2B:80:2A:77:94:CB:45:A2:9D:74"
+            ]
+        }
     }
-  }
 ]
